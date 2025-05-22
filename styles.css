@@ -1,0 +1,662 @@
+/* Estilos generales */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
+    color: #333;
+    min-height: 100vh;
+    overflow-x: hidden;
+    padding: 20px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Tarjeta de cumpleaños */
+.birthday-card {
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 15px;
+    padding: 40px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    margin-bottom: 40px;
+    animation: fadeIn 1.5s ease-out;
+}
+
+.title {
+    font-family: 'Pacifico', cursive;
+    font-size: 4rem;
+    color: #ff4081;
+    margin-bottom: 10px;
+    animation: bounce 2s infinite;
+    text-shadow: 3px 3px 0px rgba(0, 0, 0, 0.1);
+}
+
+/* Nombre bailando */
+.dancing-name {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.dancing-letter {
+    font-family: 'Pacifico', cursive;
+    font-size: 3.5rem;
+    color: #3f51b5;
+    text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.1);
+    margin: 0 5px;
+    display: inline-block;
+}
+
+.dancing-letter:nth-child(1) {
+    animation: dance 1s ease-in-out infinite;
+}
+
+.dancing-letter:nth-child(2) {
+    animation: dance 1s ease-in-out infinite 0.2s;
+}
+
+.dancing-letter:nth-child(3) {
+    animation: dance 1s ease-in-out infinite 0.4s;
+}
+
+.dancing-letter:nth-child(4) {
+    animation: dance 1s ease-in-out infinite 0.6s;
+}
+
+@keyframes dance {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    25% {
+        transform: translateY(-10px) rotate(5deg);
+    }
+    50% {
+        transform: translateY(0) rotate(0deg);
+    }
+    75% {
+        transform: translateY(10px) rotate(-5deg);
+    }
+}
+
+.message {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+
+/* Botón de sorpresa */
+.btn {
+    background-color: #ff4081;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    font-size: 1.1rem;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(255, 64, 129, 0.4);
+    font-weight: bold;
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(255, 64, 129, 0.6);
+    background-color: #f50057;
+}
+
+.btn:active {
+    transform: translateY(1px);
+}
+
+/* Sorpresa */
+.surprise {
+    text-align: center;
+    margin: 40px 0;
+    transition: all 0.5s ease;
+}
+
+/* Ya no necesitamos la clase hidden ya que el regalo se muestra automáticamente */
+.hidden {
+    display: none;
+}
+
+.surprise-message {
+    font-size: 1.3rem;
+    color: #333;
+    margin-top: 20px;
+    font-weight: bold;
+}
+
+/* Regalo animado */
+.gift-box {
+    position: relative;
+    width: 150px;
+    height: 150px;
+    margin: 0 auto 20px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.gift-box:hover {
+    transform: scale(1.05);
+}
+
+/* Mensaje de feliz cumpleaños que aparece al hacer clic en el regalo */
+.birthday-message {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: 'Pacifico', cursive;
+    font-size: 5rem;
+    color: #ff4081;
+    text-shadow: 3px 3px 0px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    animation: pulse 1.5s infinite, fadeOut 5s forwards;
+    text-align: center;
+    width: 100%;
+    /* Aseguramos que el mensaje solo aparezca cuando se hace clic en el regalo */
+    display: none;
+}
+
+.gift-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #ff4081;
+    bottom: 0;
+    border-radius: 5px;
+}
+
+.gift-lid {
+    position: absolute;
+    width: 110%;
+    height: 25px;
+    background: #f50057;
+    top: -25px;
+    left: -5%;
+    border-radius: 5px;
+    transition: transform 0.5s ease;
+}
+
+.gift-bow {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    top: -50px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+}
+
+.gift-bow:before, .gift-bow:after {
+    content: '';
+    position: absolute;
+    width: 25px;
+    height: 50px;
+    background: #ff9a9e;
+    border-radius: 50% 50% 0 0;
+}
+
+.gift-bow:before {
+    left: 0;
+    transform: rotate(-30deg);
+}
+
+.gift-bow:after {
+    right: 0;
+    transform: rotate(30deg);
+}
+
+.fireworks {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    opacity: 0;
+}
+
+/* Galería de fotos */
+.gallery {
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 15px;
+    padding: 30px;
+    margin-bottom: 40px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.gallery h2 {
+    font-family: 'Pacifico', cursive;
+    color: #ff4081;
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 2.5rem;
+}
+
+.photos {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.photo {
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.photo:hover {
+    transform: scale(1.05);
+}
+
+.photo img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    display: block;
+}
+
+/* Reproductor de música */
+.music-player {
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 15px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Indicador visual de música */
+.music-player::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, #ff4081, #3f51b5, #ff4081);
+    background-size: 200% 100%;
+    animation: none;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.music-player.playing::before {
+    opacity: 1;
+    animation: gradient-move 3s linear infinite;
+}
+
+@keyframes gradient-move {
+    0% {background-position: 0% 50%;}
+    100% {background-position: 200% 50%;}
+}
+
+.music-player h3 {
+    font-family: 'Pacifico', cursive;
+    color: #ff4081;
+    margin-bottom: 15px;
+    font-size: 1.8rem;
+}
+
+.music-btn {
+    margin-top: 10px;
+    margin-bottom: 15px;
+}
+
+/* Control de volumen */
+.volume-control {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 15px auto;
+    max-width: 250px;
+    background-color: rgba(255, 255, 255, 0.7);
+    padding: 10px;
+    border-radius: 25px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+.volume-control span {
+    font-weight: bold;
+    margin-right: 10px;
+    color: #ff4081;
+}
+
+.slider {
+    -webkit-appearance: none;
+    width: 150px;
+    height: 8px;
+    border-radius: 5px;
+    background: #d3d3d3;
+    outline: none;
+    opacity: 0.7;
+    transition: opacity .2s;
+}
+
+.slider:hover {
+    opacity: 1;
+}
+
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #ff4081;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.slider::-webkit-slider-thumb:hover {
+    background: #f50057;
+    transform: scale(1.2);
+}
+
+.slider::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #ff4081;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: none;
+}
+
+.slider::-moz-range-thumb:hover {
+    background: #f50057;
+    transform: scale(1.2);
+}
+
+/* Confeti */
+#confetti-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 100;
+}
+
+/* Globos */
+#balloons-container {
+    position: fixed;
+    bottom: -100px;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 90;
+}
+
+.balloon {
+    position: absolute;
+    width: 40px;
+    height: 60px;
+    border-radius: 50%;
+    animation: float 15s linear infinite;
+}
+
+/* Oso de peluche */
+#teddy-bear {
+    position: fixed;
+    bottom: 5px;
+    right: 20px;
+    width: 150px;
+    height: 200px;
+    transition: all 0.5s ease;
+    z-index: 100;
+    transform: scale(0);
+}
+
+
+
+#teddy-bear.hidden {
+    display: none;
+}
+
+#teddy-bear.moving {
+    animation: move-teddy 3s ease-in-out infinite;
+}
+
+@keyframes move-teddy {
+    0%, 100% {
+        transform: translateY(0) scale(1);
+    }
+    50% {
+        transform: translateY(-15px) scale(1.05);
+    }
+}
+
+
+
+.bear-body {
+    position: absolute;
+    width: 150px;
+    height: 180px;
+    background-color: #a67c52;
+    border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+    top: 50px;
+    left: 25px;
+}
+
+.bear-head {
+    position: absolute;
+    width: 120px;
+    height: 100px;
+    background-color: #a67c52;
+    border-radius: 50%;
+    top: 0;
+    left: 40px;
+}
+
+.bear-ear {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    background-color: #8c6239;
+    border-radius: 50%;
+}
+
+.bear-ear.left {
+    top: 5px;
+    left: 30px;
+}
+
+.bear-ear.right {
+    top: 5px;
+    right: 30px;
+}
+
+.bear-muzzle {
+    position: absolute;
+    width: 70px;
+    height: 50px;
+    background-color: #d9b38c;
+    border-radius: 50%;
+    top: 40px;
+    left: 25px;
+}
+
+.bear-eye {
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    background-color: #000;
+    border-radius: 50%;
+    top: 30px;
+}
+
+.bear-eye.left {
+    left: 30px;
+}
+
+.bear-eye.right {
+    right: 30px;
+}
+
+.bear-nose {
+    position: absolute;
+    width: 20px;
+    height: 15px;
+    background-color: #333;
+    border-radius: 50%;
+    top: 40px;
+    left: 25px;
+}
+
+.bear-arm {
+    position: absolute;
+    width: 50px;
+    height: 80px;
+    background-color: #a67c52;
+    border-radius: 25px;
+}
+
+.bear-arm.left {
+    top: 80px;
+    left: -10px;
+    transform-origin: top center;
+    transform: rotate(20deg);
+    transition: transform 1s ease;
+}
+
+.bear-arm.right {
+    top: 80px;
+    right: -10px;
+    transform-origin: top center;
+    transform: rotate(-20deg);
+    transition: transform 1s ease;
+}
+
+#teddy-bear.hug .bear-arm.left {
+    transform: rotate(90deg);
+}
+
+#teddy-bear.hug .bear-arm.right {
+    transform: rotate(-90deg);
+}
+
+/* Animaciones */
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
+    40% {transform: translateY(-20px);}
+    60% {transform: translateY(-10px);}
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: translate(-50%, -50%) scale(1);
+    }
+    50% {
+        transform: translate(-50%, -50%) scale(1.1);
+    }
+}
+
+@keyframes fadeOut {
+    0%, 70% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes fadeIn {
+    from {opacity: 0; transform: translateY(20px);}
+    to {opacity: 1; transform: translateY(0);}
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0) rotate(0deg);
+    }
+    25% {
+        transform: translateY(-25vh) rotate(5deg);
+    }
+    50% {
+        transform: translateY(-50vh) rotate(-5deg);
+    }
+    75% {
+        transform: translateY(-75vh) rotate(5deg);
+    }
+    100% {
+        transform: translateY(-100vh) rotate(0deg);
+    }
+}
+
+@keyframes bearHug {
+    0% {
+        transform: translate(-50%, -50%) scale(1);
+    }
+    20% {
+        transform: translate(-50%, -50%) scale(1.1);
+    }
+    40% {
+        transform: translate(-50%, -50%) scale(1);
+    }
+    100% {
+        transform: translate(-50%, -50%) scale(1);
+    }
+}
+
+@keyframes confetti-fall {
+    0% {transform: translateY(-100px) rotate(0deg);}
+    100% {transform: translateY(100vh) rotate(360deg);}
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .title {
+        font-size: 3rem;
+    }
+    
+    .photos {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    }
+    
+    .photo img {
+        height: 150px;
+    }
+    
+    .birthday-card,
+    .gallery,
+    .music-player {
+        padding: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .title {
+        font-size: 2.5rem;
+    }
+    
+    .message {
+        font-size: 1rem;
+    }
+    
+    .btn {
+        padding: 10px 20px;
+        font-size: 1rem;
+    }
+    
+    .photos {
+        grid-template-columns: 1fr;
+    }
+    
+    .photo img {
+        height: 200px;
+    }
+}

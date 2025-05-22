@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¡Feliz Cumpleaños!</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <div class="birthday-card">
+            <h1 class="title">¡Feliz Cumpleaños!</h1>
+            <div class="dancing-name">
+                <span class="dancing-letter">J</span>
+                <span class="dancing-letter">U</span>
+                <span class="dancing-letter">A</span>
+                <span class="dancing-letter">N</span>
+            </div>
+            <p class="message">En este día tan especial, quiero desearte toda la felicidad del mundo. ¡Que todos tus deseos se hagan realidad!</p>
+        </div>
+
+        <div id="surprise" class="surprise">
+            <div class="gift-box">
+                <div class="gift-lid"></div>
+                <div class="gift-container"></div>
+                <div class="gift-bow"></div>
+                <div class="fireworks"></div>
+            </div>
+            <p class="surprise-message">¡Que este nuevo año de vida esté lleno de momentos inolvidables!</p>
+        </div>
+
+        <div class="gallery">
+            <h2>Galería de Recuerdos</h2>
+            <div class="photos">
+                <div class="photo"><img src="https://source.unsplash.com/random/300x300/?birthday,cake" alt="Imagen de cumpleaños"></div>
+                <div class="photo"><img src="https://source.unsplash.com/random/300x300/?party" alt="Imagen de fiesta"></div>
+                <div class="photo"><img src="https://source.unsplash.com/random/300x300/?celebration" alt="Imagen de celebración"></div>
+                <div class="photo"><img src="https://source.unsplash.com/random/300x300/?gift" alt="Imagen de regalo"></div>
+                <div class="photo"><img src="https://source.unsplash.com/random/300x300/?friends" alt="Imagen de amigos"></div>
+                <div class="photo"><img src="https://source.unsplash.com/random/300x300/?balloons" alt="Imagen de globos"></div>
+            </div>
+        </div>
+
+        <div class="music-player">
+            <h3>Música de Cumpleaños</h3>
+            <button id="play-music" class="btn music-btn">Reproducir Música</button>
+            <div class="volume-control">
+                <span>Volumen: </span>
+                <input type="range" id="volume-slider" min="0" max="100" value="70" class="slider">
+            </div>
+            <audio id="birthday-song" preload="auto" crossorigin="anonymous">
+                <source src="https://audio-previews.elements.envatousercontent.com/files/272863517/preview.mp3" type="audio/mp3">
+                <source src="https://www.soundjay.com/misc/sounds/happy-birthday-to-you-1.mp3" type="audio/mp3">
+                <!-- Mensaje de fallback si el audio no es soportado -->
+                Tu navegador no soporta el elemento de audio.
+            </audio>
+        </div>
+    </div>
+
+    <div id="confetti-container"></div>
+    <div id="balloons-container"></div>
+    <div id="teddy-bear" class="hidden">
+        <div class="bear-head">
+            <div class="bear-ear left"></div>
+            <div class="bear-ear right"></div>
+            <div class="bear-eye left"></div>
+            <div class="bear-eye right"></div>
+            <div class="bear-nose"></div>
+            <div class="bear-muzzle"></div>
+        </div>
+        <div class="bear-body"></div>
+        <div class="bear-arm left"></div>
+        <div class="bear-arm right"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
